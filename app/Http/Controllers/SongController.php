@@ -7,6 +7,7 @@ use App\Http\Requests\StoreSongRequest;
 use App\Http\Requests\UpdateSongRequest;
 use App\Models\Category;
 use App\Models\Song;
+use App\Models\Technology;
 use Illuminate\Support\Facades\Storage;
 use illuminate\Support\Str;
 
@@ -33,8 +34,8 @@ class SongController extends Controller
     public function create()
     {
         $categories = Category::all(); //👈 get all categories
-
-        return view('admin.songs.create', compact('categories'));
+        $technologies = Technology::all();
+        return view('admin.songs.create', compact('categories', 'technologies'));
     }
 
     /**

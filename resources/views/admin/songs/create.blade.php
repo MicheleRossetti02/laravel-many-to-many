@@ -36,6 +36,19 @@
         {{$message}}
     </div>
     @enderror -->
+    <!-- show all technologies  -->
+    <div class="form-group">
+        <label for="technologies">Technologies</label>
+        <select multiple class="custom-select" name="technologies[]" id="technologies">
+            <option value="" disabled>Select Technology</option>
+
+            <option value="{{$technology->id}}">{{$technology->name}}</option>
+            @empty
+            <option value="" disabled>Sorry no Technologies in the system</option>
+            @endforelse
+
+        </select>
+    </div>
     <div class="m-3">
         <label for="artist" class="form-label">Artist</label>
         <input type="text" name="artist" id="title" class="form-control" placeholder="Artist">
