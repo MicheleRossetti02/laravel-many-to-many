@@ -29,7 +29,7 @@
     @error('cover')
     <div class="alert alert-danger">{{ $message }}</div>
     @enderror
-    <!-- 
+
     <div class="mb-3">
         <label for="category_id" class="form-label">Categories</label>
         <select class="form-select form-select-lg @error('category_id') 'is-invalid' @enderror" name="category_id" id="category_id">
@@ -45,14 +45,19 @@
     <div class="alert alert-danger" role="alert">
         {{$message}}
     </div>
-    @enderror -->
+    @enderror
     <!-- show all technologies  -->
     <div class="form-group">
         <label for="technologies">Technologies</label>
         <select multiple class="custom-select" name="technologies[]" id="technologies">
             <option value="" disabled>Select Technology</option>
+            @forelse($technologies as $technology)
 
+            @if($errors->any())
+            <option value="{{$technology->id}}" {{in_array($technology->id,old('technology',[])) ? 'selected' : ''}}>{{$technology->name}}</option>
+            @else
             <option value="{{$technology->id}}">{{$technology->name}}</option>
+            @endif
             @empty
             <option value="" disabled>Sorry no Technologies in the system</option>
             @endforelse

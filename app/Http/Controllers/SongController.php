@@ -68,6 +68,8 @@ class SongController extends Controller
         // dd($val_data);
 
         Song::create($val_data);
+
+        $val_data->technologies()->attach($request->technologies);
         //redirect
         return to_route('admin.songs.index')->with('message', 'You add a great Song!');
     }
