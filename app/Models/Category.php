@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory;
 
     /**
-     * Get all of the posts for the Category
+     * Get all of the song for the Category
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Technology;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+
 
 class TechnologySeeder extends Seeder
 {
@@ -20,7 +22,7 @@ class TechnologySeeder extends Seeder
         foreach ($technologies as $technology) {
             $newTecnology = new Technology();
             $newTecnology->name = $technology;
-            $newTecnology->slug = Technology::generateSlag($newTecnology->title);
+            $newTecnology->slug = Str::Slug($newTecnology->title);
             $newTecnology->save();
         }
     }

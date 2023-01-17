@@ -24,7 +24,7 @@ class StoreSongRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required:posts,title|max:100',
+            'title' => 'required:songs,title|max:100',
             'cover' => 'nullable|image|max:300',
             'category_id' => 'nullable|exists:categories,id', // 👈 The category id must exist!!
             'artist' => 'nullable',

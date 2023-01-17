@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('song_tecnology', function (Blueprint $table) {
             $table->unsignedBigInteger('song_id');
-            $table->foreign('poste_id')->references('id')->on('songs')->cascadeOnDelete();
+            $table->foreign('song_id')->references('id')->on('songs')->cascadeOnDelete();
 
             $table->unsignedBigInteger('tecnology_id');
             $table->foreign('tecnology_id')->references('id')->on('technologies')->cascadeOnDelete();
 
-            $table->primary('post_id', 'tecnology_id');
+            $table->primary('song_id', 'tecnology_id');
         });
     }
 
