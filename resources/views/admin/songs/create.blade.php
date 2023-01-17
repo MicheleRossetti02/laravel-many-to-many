@@ -3,6 +3,16 @@
 
 
 <h1>Add a new Song</h1>
+@if($errors->any())
+<div class="alert alert-success" role="alert">
+    <ul>
+        @foreach($errors->any() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <form action="{{route('admin.songs.store')}}" method="post" enctype="multipart/form-data">
     @csrf
 
